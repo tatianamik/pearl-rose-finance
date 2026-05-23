@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-heading: "Caveat", "Architects Daughter", cursive;
+  --font-sans: "Inter", ui-sans-serif, system-ui;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular;
+  
+  --color-journal-cream: #FAF6ED;
+  --color-journal-buff: #F5EFEB;
+  --color-journal-dark: #3D3531;
+  --color-journal-red: #C84B31;
+  --color-journal-green: #2D6A4F;
+  --color-journal-gold: #D4A373;
+}
+
+/* Custom Styles for Pearl & Rose Junk Journal theme */
+body {
+  background-color: #FAF6ED;
+  color: #3D3531;
+  font-family: var(--font-sans);
+  margin: 0;
+  padding: 0;
+  background-image: 
+    radial-gradient(circle, #EBE3D5 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+}
+
+/* Handwritten Style Utilities */
+.handwritten {
+  font-family: var(--font-heading), cursive;
+  font-weight: 600;
+}
+
+/* Torn paper component style */
+.torn-card {
+  position: relative;
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 4px 15px rgba(61, 53, 49, 0.08);
+  border: 1px solid #EBE3D5;
+}
+
+.torn-header {
+  background-image: repeating-linear-gradient(
+    45deg,
+    #F5EFEB,
+    #F5EFEB 10px,
+    #FAF6ED 10px,
+    #FAF6ED 20px
+  );
+  border-bottom: 2px dashed #D4A373;
+}
+
+/* Washi Tape styling for notes/advisories */
+.washi-tape-yellow {
+  background-color: rgb(254, 240, 138, 0.7);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  border-left: 4px solid #F59E0B;
+}
+
+.washi-tape-green {
+  background-color: rgba(220, 252, 231, 0.82);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+  border-left: 4px solid #10B981;
+}
+
+.washi-tape-pink {
+  background-color: rgba(254, 226, 226, 0.85);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  border-left: 4px solid #EF4444;
+}
+
+/* Dot Grid Pattern standard container */
+.journal-paper {
+  background-color: #FFFFFF;
+  background-image: radial-gradient(#E8E0D5 1px, transparent 0);
+  background-size: 20px 20px;
+  border: 1px solid #E2DCD2;
+  box-shadow: 0 6px 18px rgba(61, 53, 49, 0.06);
+}
+
+/* Falling Rose Petals configuration */
+@keyframes fall {
+  0% {
+    transform: translateY(-20px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.rose-petal {
+  position: fixed;
+  width: 14px;
+  height: 18px;
+  background: radial-gradient(circle at 40% 40%, #FF6B8B, #C84B31);
+  border-radius: 50% 0 50% 50%;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0.8;
+  animation: fall 4s linear forwards;
+}
+
+/* High Contrast Range Slider Styling */
+input[type="range"] {
+  accent-color: #C84B31;
+}
+
+/* Scrollbar customization */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF6ED;
+}
+::-webkit-scrollbar-thumb {
+  background: #D4A373;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C84B31;
+}
