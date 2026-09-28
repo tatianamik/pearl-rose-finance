@@ -107,14 +107,23 @@ function EmptyBedFeeAllocator({
   );
 }
 
+interface PerfectedDuesCalculatorProps {
+  memberType?: string; // active-fall, active-spring, nm-fall, nm-spring
+  ihqActiveDuesPerSemester?: number; // Set globally by IHQ for Oct & Feb
+  ihqInsuranceAnnual?: number;       // Set globally by IHQ ($60 total)
+  initialTotalDues?: number;
+  isPreviewMode?: boolean;
+  onDuesCompiled: (grandTotal: number, localOpsFee: number) => void;
+}
+
 function PerfectedDuesCalculator({ 
-  memberType = 'active-fall', // active-fall, active-spring, nm-fall, nm-spring
-  ihqActiveDuesPerSemester = 95, // Set globally by IHQ for Oct & Feb
-  ihqInsuranceAnnual = 60,       // Set globally by IHQ ($60 total)
+  memberType = 'active-fall',
+  ihqActiveDuesPerSemester = 95,
+  ihqInsuranceAnnual = 60,
   initialTotalDues = 0,
   isPreviewMode = false,
   onDuesCompiled 
-}: any) {
+}: PerfectedDuesCalculatorProps) {
   // Precision Logic Engine matching exact international schedule
   let currentIhqDues = ihqActiveDuesPerSemester; 
   let currentIhqInsurance = ihqInsuranceAnnual / 2; // $60 split evenly over 2 terms
