@@ -36,7 +36,7 @@ function getGemini() {
   return aiInstance;
 }
 
-const app = express();
+export const app = express();
 app.use(cors());
 app.use(express.json());
 
