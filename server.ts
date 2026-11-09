@@ -52,7 +52,7 @@ export interface SimulatedEmail {
   timestamp: string;
 }
 
-const sentEmails: SimulatedEmail[] = [];
+export const sentEmails: SimulatedEmail[] = [];
 
 export function sendTransactionalEmail(template: string, to: string, subject: string, content: string) {
   const email = {
