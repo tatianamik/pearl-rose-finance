@@ -52,7 +52,7 @@ export interface SimulatedEmail {
   timestamp: string;
 }
 
-const sentEmails: SimulatedEmail[] = [];
+export const sentEmails: SimulatedEmail[] = [];
 
 export function sendTransactionalEmail(template: string, to: string, subject: string, content: string) {
   const email = {
@@ -1229,4 +1229,6 @@ async function startServer() {
   });
 }
 
-startServer();
+if (process.env.NODE_ENV !== "test") {
+  startServer();
+}
