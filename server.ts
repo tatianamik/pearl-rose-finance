@@ -12,6 +12,7 @@ import { ChapterStatus, UserRole, ChapterBudgetState, TShirtOrder, OfficerStruct
 import multer from "multer";
 import * as xlsx from "xlsx";
 import cors from "cors";
+import crypto from "crypto";
 
 const upload = multer({ storage: multer.memoryStorage() });
 
@@ -708,7 +709,7 @@ app.post("/agd-budgets/api/auth/request-magic-link", (req, res) => {
     masterRoster.push(match);
   }
 
-  const token = `link_${Math.floor(Math.random() * 900000 + 100000)}`;
+  const token = `link_${crypto.randomInt(100000, 1000000)}`;
   activeSessions[token] = {
     email: match.email,
     name: match.name,
